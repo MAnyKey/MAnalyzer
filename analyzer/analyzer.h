@@ -13,6 +13,10 @@
 
 #include "word_infos.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /**
  * @struct Analyzer
  *
@@ -45,6 +49,10 @@ void analyzer_free(Analyzer * analyzer);
  * @return false, if analysis and prediction failed
  */
 bool analyzer_get_word_info(Analyzer * analyzer, char * word, unsigned int word_size, WordInfos * buffer);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif
 

@@ -51,6 +51,10 @@ struct WordInfos
     WordInfo * infos;
 };
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 //******************************************************************************
 // CREATION/DESTROYING
 //******************************************************************************
@@ -156,3 +160,7 @@ bool infos_have_prepend_error(WordInfos * wi)
 {
     return wi -> prepend_error;
 }
+
+#ifdef __cplusplus
+}
+#endif

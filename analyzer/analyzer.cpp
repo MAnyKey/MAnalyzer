@@ -76,6 +76,10 @@ struct Analyzer
     Forms * forms;
 };
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 //******************************************************************************
 // CREATING/DESTROYING
 //******************************************************************************
@@ -519,3 +523,7 @@ bool analyzer_predict(Analyzer * analyzer, AnalyzedWord * aw)
 
     return result;
 }
+
+#ifdef __cplusplus
+}
+#endif

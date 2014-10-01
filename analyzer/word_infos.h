@@ -6,6 +6,10 @@
 #ifndef WORD_INFOS_HPP
 #define WORD_INFOS_HPP
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /**
  * @struct WordInfos
  * @brief This struct contains information about normal forms of the word (form
@@ -90,5 +94,9 @@ unsigned short int infos_get_normal_form_id(WordInfos * wi, unsigned int id);
  * @return form id
  */
 unsigned short int infos_get_form_id(WordInfos * wi, unsigned int id);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif
