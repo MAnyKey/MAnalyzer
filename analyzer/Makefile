@@ -9,12 +9,23 @@ else
 	DEBUG_MODE =
 endif
 
+LINKFLAGS=
+UNAME_S := $(shell uname -s)
+ifeq ($(UNAME_S),Linux)
+	BINARY = libmanalyzer.so
+	LINKFLAGS += -shared
+endif
+ifeq ($(UNAME_S),Darwin)
+	BINARY = libmanalyzer.dylib
+	LINKFLAGS += -dynamiclib -undefined suppress -flat_namespace
+endif
+
 CFLAGS = -c -fPIC -O3 $(DEBUG_MODE)
 
 OBJS = analyzer.o analyzed_word.o lemmas_rules.o forms.o rules.o word_infos.o normal_forms.o endings_rules.o
 
-libmanalyzer.so: $(OBJS)
-	g++ -shared -o libmanalyzer.so $(OBJS)
+$(BINARY): $(OBJS)
+	g++ $(LINKFLAGS) -o $(BINARY) $(OBJS)
 
 analyzer.o: analyzer.cpp
 	g++ $(CFLAGS) analyzer.cpp
