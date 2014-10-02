@@ -31,13 +31,13 @@ struct Analyzer;
  * @param dirname path to the dictionary
  * @return pointer to created Analyzer, if succesed
  */
-Analyzer * analyzer_new(const char * dirname);
+struct Analyzer * analyzer_new(const char * dirname);
 
 /**
  * @brief Destroys Analyzer.
  * @param analyzer pointer to an existing Analyzer
  */
-void analyzer_free(Analyzer * analyzer);
+void analyzer_free(struct Analyzer * analyzer);
 
 /**
  * @brief Gets word's grammar information.
@@ -48,7 +48,7 @@ void analyzer_free(Analyzer * analyzer);
  * @return true, if word was analyzed succesfully
  * @return false, if analysis and prediction failed
  */
-bool analyzer_get_word_info(Analyzer * analyzer, char * word, unsigned int word_size, WordInfos * buffer);
+bool analyzer_get_word_info(struct Analyzer * analyzer, char * word, unsigned int word_size, struct WordInfos * buffer);
 
 #ifdef __cplusplus
 }
